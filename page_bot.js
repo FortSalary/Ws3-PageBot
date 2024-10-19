@@ -19,6 +19,10 @@ app.set("json spaces", 4);
 ["/", "index.html"]
 ].forEach(route => app.get(route[0], (req, res) => res.sendFile(__dirname + "/site/" + route[1])));
 
+app.get("/privacy-policy", async (req, res) => {
+  res.sendFile(__dirname + "/site/privacy.html");
+});
+
 function getUptime() {
   const time = process.uptime();
   const hours = Math.floor(time / (60 * 60));
